@@ -7,12 +7,12 @@ RSpec.describe Meal, type: :model do
   end
 
   it "is not valid without a name" do
-    meal = build(:meal)
+    meal = build(:meal, name: "")
     expect(meal).to_not be_valid
   end
 
   it "is not valid without a description" do
-    meal = build(:meal)
+    meal = build(:meal, description:"")
     expect(meal).to_not be_valid
   end
 

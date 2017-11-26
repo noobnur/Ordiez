@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :meal do
-    name ""
-    description ""
+    name "testmeal"
+    description "testdescription"
   end
 end
