@@ -16,11 +16,6 @@ RSpec.describe DeliveryOrder, type: :model do
     expect(deliveryOrder.order_id).to start_with("GO")
   end
 
-  it "ends with a number" do
-    deliveryOrder = build(:delivery_order)
-    expect(deliveryOrder.order_id).to end_with("3")
-  end
-
   it "ends with any number" do
     deliveryOrder = build(:delivery_order)
     breakdown = (deliveryOrder.order_id).split

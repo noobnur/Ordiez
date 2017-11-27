@@ -17,3 +17,13 @@ end
     serving_datetime: Faker::Time.between(DateTime.now - 1, DateTime.now)
   )
 end
+
+
+10.times do
+  OrderItem.create(
+    delivery_order_id: DeliveryOrder.all.sample.id,
+    meal_id: Meal.all.sample.id,
+    quantity: [*1..5].sample,
+    unit_price: [*100..5000].sample
+  )
+end

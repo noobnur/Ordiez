@@ -10,22 +10,14 @@ RSpec.describe OrdersController, type: :controller do
   it "assigns @delivery_orders" do
         newdelivery = FactoryBot.create_list(:delivery_order, 3)
         get :index
-        expect(assigns(:delivery_order).to_a).to eq(newdelivery)
+        expect(assigns(:delivery_orders).to_a).to eq(newdelivery)
       end
 
-  it "should show orderid"
-  it "should show delivery_time"
-  it "should not show the delivery_order_id"
-end
+  it "should have valid orderid" do
+    newdelivery = FactoryBot.create(:delivery_order)
+    get :index
+    expect(newdelivery.order_id).should satisfy{/\AGO\d{3}$\z/i}
+  end
 
- describe "GET #orders_id" do
-  it "should render json"
-  it "should show the order items also"
-  it "should not show unit_price"
-  it "should not show meal_id"
-
-  it "the order items should show name: quantity: and total_price:"
-  it "total_price should be integer"
-  it "total_price should be quantity*unit_price"
 end
 end

@@ -1,6 +1,8 @@
-FactoryBot.define do |i|
+require 'faker'
+
+FactoryBot.define do
   factory :delivery_order do
-    order_id "GO123"
-    serving_datetime "2017-11-26 16:13:00"
+    sequence(:order_id) { |i| "GO"+(i+1).to_s.rjust(3,'0') }
+    sequence(:serving_datetime) { Faker::Time.between(DateTime.now - 1, DateTime.now) }
   end
 end
