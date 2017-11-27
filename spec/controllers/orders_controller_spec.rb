@@ -13,11 +13,11 @@ RSpec.describe OrdersController, type: :controller do
   #   expect(response).to include(@newdelivery)
   # end
 
-  # it "assigns @delivery_orders" do
-  #       newdelivery = build(:delivery_order)
-  #       get :index
-  #       expect(assigns(:newdelivery)).to eq([newdelivery])
-  #     end
+  it "assigns @delivery_orders" do
+        newdelivery = FactoryBot.create_list(:delivery_order, 3)
+        get :index
+        expect(assigns(:delivery_orders).to_a).to eq(newdelivery)
+      end
 
   it "should show orderid"
   it "should show delivery_time"
