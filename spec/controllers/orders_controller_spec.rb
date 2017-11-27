@@ -7,16 +7,10 @@ RSpec.describe OrdersController, type: :controller do
       expect(response).to be_success
   end
 
-  # it "should pass the delivery orders" do
-  #   get :index
-  #   @newdelivery = build(:delivery_order)
-  #   expect(response).to include(@newdelivery)
-  # end
-
   it "assigns @delivery_orders" do
         newdelivery = FactoryBot.create_list(:delivery_order, 3)
         get :index
-        expect(assigns(:delivery_orders).to_a).to eq(newdelivery)
+        expect(assigns(:delivery_order).to_a).to eq(newdelivery)
       end
 
   it "should show orderid"
