@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.6'
+  gem 'rails-controller-testing'
   gem 'shoulda-matchers', '~> 3.1'
   gem "factory_bot_rails", "~> 4.0"
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
