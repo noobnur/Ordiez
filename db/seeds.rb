@@ -14,7 +14,8 @@ end
 5.times do |i|
   DeliveryOrder.create(
     order_id: "GO"+(i+1).to_s.rjust(3,'0'),
-    serving_datetime: Faker::Time.between(DateTime.now - 1, DateTime.now)
+    serving_datetime: Faker::Time.between(DateTime.now - 1, DateTime.now),
+    feedback: [true, false].sample
   )
 end
 
