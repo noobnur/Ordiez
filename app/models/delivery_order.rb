@@ -6,6 +6,7 @@ class DeliveryOrder < ApplicationRecord
   validates_presence_of :serving_datetime
 
   has_many :order_items
+  has_one :feedback, as: :ratable
 
   def delivery_date
     serving_datetime.strftime('%Y/%m/%d')
