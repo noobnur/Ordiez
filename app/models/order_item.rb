@@ -13,7 +13,11 @@ class OrderItem < ApplicationRecord
   end
 
   def name
-  self.meal.name
+  meal.name
+  end
+
+  def order_item_id
+  (delivery_order.order_items).index(meal.id)
   end
 
 end

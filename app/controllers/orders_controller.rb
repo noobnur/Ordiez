@@ -1,8 +1,14 @@
 class OrdersController < ApplicationController
   def index
     @delivery_orders = DeliveryOrder.all
-    render json: @delivery_orders.as_json(except: [:id, :serving_datetime, :created_at, :updated_at],
-         methods: [:delivery_date, :delivery_time])
+    render json: @delivery_orders.as_json(except: [:serving_datetime, :created_at, :updated_at],
+         methods: [:delivery_date, :delivery_time],
+         include: { order_items: {
+           methods: [:order_item_id, :name],
+           only: [:order_item_id, :name]
+           }
+         }
+         )
   end
 
   def show

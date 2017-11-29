@@ -18,6 +18,7 @@ class DeliveryOrder < ApplicationRecord
     time + "-" + add30
   end
 
+
   # def as_json(options={})
   #   super(except: [:id, :serving_datetime, :created_at, :updated_at],
   #        methods: [:delivery_date, :delivery_time])
