@@ -15,7 +15,7 @@ end
   DeliveryOrder.create(
     order_id: "GO"+(i+1).to_s.rjust(3,'0'),
     serving_datetime: Faker::Time.between(DateTime.now - 1, DateTime.now),
-    feedback: [true, false].sample
+    feedback_submitted: [true,false].sample
   )
 end
 
@@ -28,3 +28,7 @@ end
     unit_price: [*100..5000].sample
   )
 end
+
+Feedback.create(ratable_id: 123, ratable_type: "DeliveryOrder", rating: 4, comment: "Delivery was prompt and rider was kind, but he forgot cutleries")
+Feedback.create(ratable_id: 1, ratable_type: "OrderItem", rating: 3, comment: "The food portion was too little, was alittle hungry after")
+Feedback.create(ratable_id: 2, ratable_type: "OrderItem", rating: 5, comment: "It was super tasty and I loved it")
